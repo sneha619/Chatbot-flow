@@ -1,16 +1,21 @@
 "use client"
 
-import { Handle, Position, type NodeProps } from "@xyflow/react"
+import { Handle, Position } from "@xyflow/react"
 import { MessageSquare, Grip } from "lucide-react"
 
 interface TextNodeData {
-  text: string
+  text?: string
   [key: string]: unknown
 }
 
-export function TextNode({ data, selected }: NodeProps<TextNodeData>) {
-  const displayText = (data as TextNodeData).text || "Enter your message..."
-  const isPlaceholder = !(data as TextNodeData).text
+type Props = {
+  data: TextNodeData
+  selected?: boolean
+}
+
+export function TextNode({ data, selected }: Props) {
+  const displayText = data?.text ?? "Enter your message..."
+  const isPlaceholder = !data?.text
 
   return (
     <div
@@ -20,7 +25,6 @@ export function TextNode({ data, selected }: NodeProps<TextNodeData>) {
       transition-all duration-200 hover:shadow-md
     `}
     >
-      {/* Target handle - can receive multiple connections */}
       <Handle
         type="target"
         position={Position.Top}
@@ -28,7 +32,6 @@ export function TextNode({ data, selected }: NodeProps<TextNodeData>) {
         style={{ top: -6 }}
       />
 
-      {/* Node header */}
       <div className="flex items-center justify-between p-3 pb-2 border-b border-border/50">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded bg-primary/10 flex items-center justify-center">
@@ -39,7 +42,6 @@ export function TextNode({ data, selected }: NodeProps<TextNodeData>) {
         <Grip className="w-3 h-3 text-muted-foreground" />
       </div>
 
-      {/* Node content */}
       <div className="p-3 pt-2">
         <div
           className={`
@@ -51,7 +53,6 @@ export function TextNode({ data, selected }: NodeProps<TextNodeData>) {
         </div>
       </div>
 
-      {/* Source handle - only one connection allowed */}
       <Handle
         type="source"
         position={Position.Bottom}
