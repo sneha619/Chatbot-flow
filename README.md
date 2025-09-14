@@ -7,6 +7,14 @@ Deployed link - https://chatbot-flow-sand.vercel.app/
 
 ---
 
+✨ Features
+
+Visual chatbot flow builder
+
+Drag-and-drop node system
+
+Tailwind + Radix UI styling
+
 ## 🚀 Tech Stack
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) – fast build tool
@@ -55,19 +63,18 @@ Clone the repository:
 ```bash
 git clone https://github.com/<your-username>/Chatbot-flow.git
 cd my-app
+```
 
 Install dependencies:
+```
 npm install
+```
 
 Start development server:
+```
 npm run dev
+```
 
-✨ Features
 
-Visual chatbot flow builder
-
-Drag-and-drop node system
-
-Tailwind + Radix UI styling
 
 TypeScript support for better DX
