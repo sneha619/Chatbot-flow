@@ -19,6 +19,7 @@ Deployed link - https://chatbot-flow-sand.vercel.app/
 
 ## 📂 Project Structure
 
+```
 my-app/
 ├── public/ # Static assets (favicon, logos, redirects, etc.)
 ├── src/ # Source code
