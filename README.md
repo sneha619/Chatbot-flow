@@ -46,7 +46,7 @@ my-app/
 ├── .gitignore
 └── README.md
 
----
+```
 
 ## 🛠️ Installation & Setup
 
