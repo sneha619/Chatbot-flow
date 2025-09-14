@@ -15,6 +15,8 @@ Drag-and-drop node system
 
 Tailwind + Radix UI styling
 
+---
+
 ## 🚀 Tech Stack
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) – fast build tool
