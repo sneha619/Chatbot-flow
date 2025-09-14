@@ -20,8 +20,8 @@ Deployed link - https://chatbot-flow-sand.vercel.app/
 ## 📂 Project Structure
 
 my-app/
-│── public/ # Static assets (favicon, logos, redirects, etc.)
-│── src/ # Source code
+├── public/ # Static assets (favicon, logos, redirects, etc.)
+├── src/ # Source code
 │ ├── assets/ # Images, fonts, other assets
 │ ├── components/ # Reusable UI components
 │ │ ├── nodes/ # Node components for chatbot flow
@@ -37,14 +37,13 @@ my-app/
 │ ├── main.tsx # Entry point
 │ ├── index.css # Global styles
 │ └── App.css # Component-specific styles
-│── dist/ # Production build output (after npm run build)
-│── package.json # Project dependencies & scripts
-│── vite.config.ts # Vite configuration
-│── tailwind.config.js # Tailwind setup
-│── tsconfig.json # TypeScript configuration
-│── .gitignore
-│── README.md
-
+├── dist/ # Production build output (after npm run build)
+├── package.json # Project dependencies & scripts
+├── vite.config.ts # Vite configuration
+├── tailwind.config.js # Tailwind setup
+├── tsconfig.json # TypeScript configuration
+├── .gitignore
+└── README.md
 
 ---
 
