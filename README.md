@@ -1,19 +1,48 @@
-# Chatbot Flow
+# 🤖 Chatbot Flow Builder
 
-A **React + TypeScript** project for building and managing chatbot flows visually.  
-This project uses **Tailwind CSS**, **Radix UI**, and **Lucide Icons** for styling and components.
+A **React + TypeScript + Vite** project that implements a **drag-and-drop chatbot flow builder**.  
+The system is designed to be **modular and extensible**, allowing new node types and features to be added easily in the future.
 
 Deployed link - https://chatbot-flow-sand.vercel.app/
 
 ---
 
-✨ Features
+## ✅ Implemented Features
 
-Visual chatbot flow builder
+### 1. Text Node
+- Implemented **Text Message Node** as the first node type.
+- Multiple Text Nodes can be created and used within the same flow.
+- Nodes can be **dragged from the Nodes Panel** and dropped into the flow builder canvas.
 
-Drag-and-drop node system
+---
 
-Tailwind + Radix UI styling
+### 2. Nodes Panel
+- Built a **Nodes Panel** that lists all supported node types.
+- Currently supports only **Text Message Node**, but the panel is structured to easily support additional nodes in the future (e.g., Image, Options, Questions).
+
+---
+
+### 3. Edge
+- Implemented **edges** to connect two nodes together.
+- Visual representation of conversation flow between nodes.
+
+---
+
+### 4. Source Handle
+- Each node contains a **Source Handle** for creating outgoing connections.
+- A Source Handle is restricted to **only one outgoing edge**, ensuring clarity in the flow.
+
+---
+
+### 5. Target Handle
+- Each node contains a **Target Handle** for receiving incoming connections.
+- A Target Handle can support **multiple incoming edges**, enabling flexible flows.
+
+---
+
+### 6. Settings Panel
+- Added a **Settings Panel** where node properties can be configured dynamically.
+- Updates to the node in the settings panel are reflected immediately in the flow builder.
 
 ---
 
