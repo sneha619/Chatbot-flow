@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useCallback, useRef } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import {
   ReactFlow,
   type Node,
@@ -34,6 +34,9 @@ const nodeTypes = {
 // Initial nodes and edges
 const initialNodes: Node[] = []
 const initialEdges: Edge[] = []
+
+// LocalStorage key for saving flows
+const FLOW_STORAGE_KEY = 'chatbot-flow-data'
 
 function FlowCanvas() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
@@ -125,6 +128,22 @@ function FlowCanvas() {
     [setNodes, setEdges],
   )
 
+  // Load flow from localStorage on component mount
+  useEffect(() => {
+    try {
+      const savedFlow = localStorage.getItem(FLOW_STORAGE_KEY)
+      if (savedFlow) {
+        const flowData = JSON.parse(savedFlow)
+        if (flowData.nodes && flowData.edges) {
+          setNodes(flowData.nodes)
+          setEdges(flowData.edges)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load saved flow:', error)
+    }
+  }, [setNodes, setEdges])
+
   // Handle save action
   const handleSave = useCallback(() => {
     const validation = validateFlow(nodes, edges)
@@ -142,17 +161,24 @@ function FlowCanvas() {
       if (!proceed) return
     }
 
-    // Here you would typically save to a backend
-    alert("Flow saved successfully!")
-    console.log("Saved flow:", {
-      nodes,
-      edges,
-      metadata: {
-        nodeCount: nodes.length,
-        edgeCount: edges.length,
-        savedAt: new Date().toISOString(),
-      },
-    })
+    try {
+      // Save to localStorage
+      const flowData = {
+        nodes,
+        edges,
+        metadata: {
+          nodeCount: nodes.length,
+          edgeCount: edges.length,
+          savedAt: new Date().toISOString(),
+        },
+      }
+      localStorage.setItem(FLOW_STORAGE_KEY, JSON.stringify(flowData))
+      alert("Flow saved successfully!")
+      console.log("Saved flow:", flowData)
+    } catch (error) {
+      console.error('Failed to save flow:', error)
+      alert("Failed to save flow. Please try again.")
+    }
   }, [nodes, edges])
 
   return (
